@@ -24,3 +24,6 @@ This application was done to test my understanding of the following
 
   Most importantly this was just for fun
     Honestly I was just curious  to see how this code would look in the end and I had fun thinking on it... until my next coding project
+
+
+There are more additions to be made such as the a timer to show the user how long the different function took to run
