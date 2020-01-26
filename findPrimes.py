@@ -1,5 +1,8 @@
 
-
+'''
+    this program function in O(n^2) where each loop of the range of number given by the user
+    we go through from the begining comparing each time
+'''
 def findPrimesTheLongWay(LOOPS, start, primesArray):
     isPrime = "is"
     for i in range(start, LOOPS):
@@ -9,7 +12,10 @@ def findPrimesTheLongWay(LOOPS, start, primesArray):
         if isPrime != "not":
             primesArray.append(i)
         isPrime = "is"
-
+'''
+    this function is slighly faster in performance as we are adding the newly found prime numbers
+    to a simulated memory (the array) where each new number is compared to the number int he array -> primesArray
+'''
 def findPrimesTheSemiLongWay(LOOPS, start, primesArray):
     isPrime = "is"
     for i in range(start, LOOPS):
@@ -21,6 +27,10 @@ def findPrimesTheSemiLongWay(LOOPS, start, primesArray):
             primesArray.append(i)
         isPrime = "is"
 
+'''
+    very very similar to the function above except for one line of code. The break statement that one line allows us
+    to say "you are not a prime so there is no need t look any futher"
+'''
 def findPrimesTheOptimisedWay(LOOPS, start, primesArray):
     isPrime = "is"
     # highly optimisied using the break statement
