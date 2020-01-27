@@ -52,7 +52,7 @@ def printPrimes(primesArray):
     columns = 5;
     rows = int((len(primesArray)/2))+1
     printer = ""
-
+    
     for i in range(rows):
         for x in range(columns):
             if len(primesArray) == 0:
