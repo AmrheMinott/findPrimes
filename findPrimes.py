@@ -48,19 +48,34 @@ def findPrimesTheOptimisedWay(LOOPS, start, primesArray):
             primesArray.append(i)
         isPrime = "is"
 
+def printPrimes(primesArray):
+
+    printer = ""
+    count = 0
+    for x in primesArray:
+        printer += "\t" + str(x) + "\t"
+        count += 1
+        if count == 5:
+            count = 0
+            print(f"{printer}")
+            printer = ""
+
 
 def main():
 
-    STRAT_VALUE = 2
-    WAIT_TIME = 10
-    SLEEP = 5;
-    LOOPS = int(input("Insert value for number of LOOPS\n"))
+    STRAT_VALUE = 2 # where we start count in our range
+    WAIT_TIME = 5 # total wait time on display
+    SLEEP = 1; # the wait periods inbetween the function calls
+    LOOPS = int(input("Insert value for number of LOOPS\n")) # use inputs value for the range they wish to find primes in
     primes = []
 
     print(f"We are going to find the prime numbers between 1 and {LOOPS} the LONG way")
     input("Press enter to execute \"findPrimesTheLongWay\"")
     findPrimesTheLongWay(LOOPS, STRAT_VALUE, primes)
-    print(f"\n\nPrimes found by the long method {primes}")
+    print(f"\n\nPrimes found by the long method ")
+
+    printPrimes(primes)
+
 
 
     print(f"\n\nWait {WAIT_TIME} seconds we are clearing array from findPrimesTheLongWay for next test ...");
@@ -73,7 +88,8 @@ def main():
     print(f"We are going to find the prime numbers between 1 and {LOOPS} the SEMI-LONG way")
     input("Press enter to execute \"findPrimesTheSemiLongWay\"")
     findPrimesTheSemiLongWay(LOOPS, STRAT_VALUE, primes)
-    print(f"\n\nPrimes found by the SEMI-LONG method {primes}")
+    print(f"\n\nPrimes found by the SEMI-LONG method ")
+    printPrimes(primes)
 
 
     print(f"\n\nWait {WAIT_TIME} seconds we are clearing array from findPrimesTheSemiLongWay for next test ...");
@@ -86,7 +102,8 @@ def main():
     print(f"We are going to find the prime numbers between 1 and {LOOPS} the OPTIMIZED way")
     input("Press enter to execute \"findPrimesTheOptimisedWay\"")
     findPrimesTheOptimisedWay(LOOPS, STRAT_VALUE, primes)
-    print(f"\n\nPrimes found by the OPTIMIZED method {primes}\n\n")
+    print(f"\n\nPrimes found by the OPTIMIZED method \n\n")
+    printPrimes(primes)
 
 # we are calling main to run the function we just created
 main()
