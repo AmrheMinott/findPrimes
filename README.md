@@ -1,8 +1,11 @@
 # findPrimes
 
+Project Name: Anita Corsini
+  Married Mkano a Zulu warrior in an interracial marriage and faced discrimination for it but fought for the love of her life
+
 Why:  
   This application was done to test my understanding of the following
-  
+
   Run time complexity -> the aim is to find primes number in a given range example 2-50. However there are three method used to find these prime done in this python program.
 
     Method 1:   We go through each number of the range and compare that number to every number previously seen
