@@ -49,16 +49,17 @@ def findPrimesTheOptimisedWay(LOOPS, start, primesArray):
         isPrime = "is"
 
 def printPrimes(primesArray):
-
+    columns = 5;
+    rows = int((len(primesArray)/2))+1
     printer = ""
-    count = 0
-    for x in primesArray:
-        printer += "\t" + str(x) + "\t"
-        count += 1
-        if count == 5:
-            count = 0
-            print(f"{printer}")
-            printer = ""
+
+    for i in range(rows):
+        for x in range(columns):
+            if len(primesArray) == 0:
+                break
+            printer += "\t" + str(primesArray.pop(0)) + "\t"
+        print(f"{printer}")
+        printer = ""
 
 
 def main():
@@ -66,16 +67,18 @@ def main():
     STRAT_VALUE = 2 # where we start count in our range
     WAIT_TIME = 5 # total wait time on display
     SLEEP = 1; # the wait periods inbetween the function calls
-    LOOPS = int(input("Insert value for number of LOOPS\n")) # use inputs value for the range they wish to find primes in
-    primes = []
+
+    LOOPS = input("Insert value for number of LOOPS\n") # use inputs value for the range they wish to find primes in
+    while not(LOOPS.isdigit()): # error handling is done here where if the user inputs a string the loop continues until an int is inputted
+        LOOPS = input("Insert an integer for number of LOOPS\n")
+    LOOPS = int(LOOPS) # convert the string version of an int to an actual useable int
+    primes = [] # this array holds our value for the primes number we have found
 
     print(f"We are going to find the prime numbers between 1 and {LOOPS} the LONG way")
     input("Press enter to execute \"findPrimesTheLongWay\"")
     findPrimesTheLongWay(LOOPS, STRAT_VALUE, primes)
     print(f"\n\nPrimes found by the long method ")
-
     printPrimes(primes)
-
 
 
     print(f"\n\nWait {WAIT_TIME} seconds we are clearing array from findPrimesTheLongWay for next test ...");
