@@ -1,3 +1,6 @@
+# import module
+import time
+
 
 '''
     this program function in O(n^2) where each loop of the range of number given by the user
@@ -49,6 +52,8 @@ def findPrimesTheOptimisedWay(LOOPS, start, primesArray):
 def main():
 
     STRAT_VALUE = 2
+    WAIT_TIME = 10
+    SLEEP = 5;
     LOOPS = int(input("Insert value for number of LOOPS\n"))
     primes = []
 
@@ -58,7 +63,10 @@ def main():
     print(f"\n\nPrimes found by the long method {primes}")
 
 
-    print("Clearing array ...\n\n\n");
+    print(f"\n\nWait {WAIT_TIME} seconds we are clearing array from findPrimesTheLongWay for next test ...");
+    time.sleep(SLEEP);
+    print("The next function to test is findPrimesTheSemiLongWay\n\n");
+    time.sleep(SLEEP);
 
 
     primes.clear()
@@ -68,7 +76,10 @@ def main():
     print(f"\n\nPrimes found by the SEMI-LONG method {primes}")
 
 
-    print("Clearing array ...\n\n\n");
+    print(f"\n\nWait {WAIT_TIME} seconds we are clearing array from findPrimesTheSemiLongWay for next test ...");
+    time.sleep(SLEEP);
+    print("The next function to test is findPrimesTheOptimisedWay\n\n");
+    time.sleep(SLEEP);
 
 
     primes.clear()
@@ -77,4 +88,5 @@ def main():
     findPrimesTheOptimisedWay(LOOPS, STRAT_VALUE, primes)
     print(f"\n\nPrimes found by the OPTIMIZED method {primes}\n\n")
 
+# we are calling main to run the function we just created
 main()
