@@ -48,23 +48,34 @@ def findPrimesTheOptimisedWay(LOOPS, start, primesArray):
             primesArray.append(i)
         isPrime = "is"
 
+
 def printPrimes(primesArray):
     columns = 5;
     rows = int((len(primesArray)/2))+1
     printer = ""
-    
     for i in range(rows):
         for x in range(columns):
             if len(primesArray) == 0:
                 break
             printer += "\t" + str(primesArray.pop(0)) + "\t"
-        print(f"{printer}")
-        printer = ""
+    print(f"{printer}")
+    printer = ""
 
+def timeMe(functionName , func, LOOPS, START_VALUE, primes):
+    start = time.time()
+    if func == 0:
+        findPrimesTheLongWay(LOOPS, START_VALUE, primes)
+    elif func == 1:
+        findPrimesTheSemiLongWay(LOOPS, START_VALUE, primes)
+    else:
+        findPrimesTheOptimisedWay(LOOPS, START_VALUE, primes)
+    end = time.time()
+
+    print(f"{functionName} took {end - start} to find primes in the range {LOOPS}")
 
 def main():
 
-    STRAT_VALUE = 2 # where we start count in our range
+    START_VALUE = 2 # where we start count in our range
     WAIT_TIME = 5 # total wait time on display
     SLEEP = 1; # the wait periods inbetween the function calls
 
@@ -74,37 +85,30 @@ def main():
     LOOPS = int(LOOPS) # convert the string version of an int to an actual useable int
     primes = [] # this array holds our value for the primes number we have found
 
+
     print(f"We are going to find the prime numbers between 1 and {LOOPS} the LONG way")
     input("Press enter to execute \"findPrimesTheLongWay\"")
-    findPrimesTheLongWay(LOOPS, STRAT_VALUE, primes)
+
+    timeMe("findPrimesTheLongWay" , 0 , LOOPS, START_VALUE, primes)
     print(f"\n\nPrimes found by the long method ")
     printPrimes(primes)
-
-
-    print(f"\n\nWait {WAIT_TIME} seconds we are clearing array from findPrimesTheLongWay for next test ...");
-    time.sleep(SLEEP);
-    print("The next function to test is findPrimesTheSemiLongWay\n\n");
-    time.sleep(SLEEP);
 
 
     primes.clear()
     print(f"We are going to find the prime numbers between 1 and {LOOPS} the SEMI-LONG way")
     input("Press enter to execute \"findPrimesTheSemiLongWay\"")
-    findPrimesTheSemiLongWay(LOOPS, STRAT_VALUE, primes)
+
+
+    timeMe("findPrimesTheSemiLongWay" , 1 , LOOPS, START_VALUE, primes)
     print(f"\n\nPrimes found by the SEMI-LONG method ")
     printPrimes(primes)
-
-
-    print(f"\n\nWait {WAIT_TIME} seconds we are clearing array from findPrimesTheSemiLongWay for next test ...");
-    time.sleep(SLEEP);
-    print("The next function to test is findPrimesTheOptimisedWay\n\n");
-    time.sleep(SLEEP);
 
 
     primes.clear()
     print(f"We are going to find the prime numbers between 1 and {LOOPS} the OPTIMIZED way")
     input("Press enter to execute \"findPrimesTheOptimisedWay\"")
-    findPrimesTheOptimisedWay(LOOPS, STRAT_VALUE, primes)
+
+    timeMe("findPrimesTheOptimisedWay" , 2 , LOOPS, START_VALUE, primes)
     print(f"\n\nPrimes found by the OPTIMIZED method \n\n")
     printPrimes(primes)
 
