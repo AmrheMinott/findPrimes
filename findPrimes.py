@@ -49,6 +49,7 @@ def findPrimesTheOptimisedWay(LOOPS, start, primesArray):
         isPrime = "is"
 
 
+# this function prints our arrays in a neat and tidy columns
 def printPrimes(primesArray):
     columns = 5;
     rows = int((len(primesArray)/2))+1
@@ -61,6 +62,7 @@ def printPrimes(primesArray):
     print(f"{printer}")
     printer = ""
 
+# this function determines the time of the function we are running
 def timeMe(functionName , func, LOOPS, START_VALUE, primes):
     start = time.time()
     if func == 0:
@@ -71,6 +73,7 @@ def timeMe(functionName , func, LOOPS, START_VALUE, primes):
         findPrimesTheOptimisedWay(LOOPS, START_VALUE, primes)
     end = time.time()
 
+    # prints the name of the function plus the time it took to complete execting as well as the number of loops that were done
     print(f"{functionName} took {end - start} to find primes in the range {LOOPS}")
 
 def main():
@@ -78,12 +81,13 @@ def main():
     START_VALUE = 2 # where we start count in our range
     WAIT_TIME = 5 # total wait time on display
     SLEEP = 1; # the wait periods inbetween the function calls
+    primes = [] # this array holds our value for the primes number we have found
+
 
     LOOPS = input("Insert value for number of LOOPS\n") # use inputs value for the range they wish to find primes in
     while not(LOOPS.isdigit()): # error handling is done here where if the user inputs a string the loop continues until an int is inputted
         LOOPS = input("Insert an integer for number of LOOPS\n")
     LOOPS = int(LOOPS) # convert the string version of an int to an actual useable int
-    primes = [] # this array holds our value for the primes number we have found
 
 
     print(f"We are going to find the prime numbers between 1 and {LOOPS} the LONG way")
