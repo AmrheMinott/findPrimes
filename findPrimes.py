@@ -6,9 +6,9 @@ import time
     this program function in O(n^2) where each loop of the range of number given by the user
     we go through from the begining comparing each time
 '''
-def findPrimesTheLongWay(range, start, primesArray):
+def findPrimesTheLongWay(ranges, start, primesArray):
     isPrime = "is"
-    for i in range(start, range):
+    for i in range(start, ranges):
         for y in range(start, i):
             if (i%y == 0): # not a prime
                 isPrime = "not"
@@ -19,9 +19,9 @@ def findPrimesTheLongWay(range, start, primesArray):
     this function is slighly faster in performance as we are adding the newly found prime numbers
     to a simulated memory (the array) where each new number is compared to the number int he array -> primesArray
 '''
-def findPrimesTheSemiLongWay(range, start, primesArray):
+def findPrimesTheSemiLongWay(ranges, start, primesArray):
     isPrime = "is"
-    for i in range(start, range):
+    for i in range(start, ranges):
         for y in primesArray:
             if (i%y == 0): # not a prime
                 isPrime = "not"
@@ -34,10 +34,10 @@ def findPrimesTheSemiLongWay(range, start, primesArray):
     very very similar to the function above except for one line of code. The break statement that one line allows us
     to say "you are not a prime so there is no need t look any futher"
 '''
-def findPrimesTheOptimisedWay(range, start, primesArray):
+def findPrimesTheOptimisedWay(ranges, start, primesArray):
     isPrime = "is"
     # highly optimisied using the break statement
-    for i in range(start, range):
+    for i in range(start, ranges):
         for y in primesArray: # we are looping through the members of the primes array
             if (i%y == 0): # not a prime
                 isPrime = "not"
@@ -71,14 +71,14 @@ def printPrimes(primesArray, func):
     printer = ""
 
 # this function determines the time of the function we are running
-def timeMe(functionName , func, range, START_VALUE, primes):
+def timeMe(functionName , func, ranger, START_VALUE, primes):
     start = time.time()
     if func == 0:
-        findPrimesTheLongWay(range, START_VALUE, primes)
+        findPrimesTheLongWay(ranger, START_VALUE, primes)
     elif func == 1:
-        findPrimesTheSemiLongWay(range, START_VALUE, primes)
+        findPrimesTheSemiLongWay(ranger, START_VALUE, primes)
     else:
-        findPrimesTheOptimisedWay(range, START_VALUE, primes)
+        findPrimesTheOptimisedWay(ranger, START_VALUE, primes)
     end = time.time()
 
     # prints the name of the function plus the time it took to complete execting as well as the number of loops that were done
@@ -94,7 +94,7 @@ def main():
 
     range = input("Insert value for number of range\n") # use inputs value for the range they wish to find primes in
     while not(range.isdigit()): # error handling is done here where if the user inputs a string the loop continues until an int is inputted
-        range = input("Insert an integer for number of range\n")
+        range = int(input("Insert an integer for number of range\n"))
     range = int(range) # convert the string version of an int to an actual useable int
 
 
