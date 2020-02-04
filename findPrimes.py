@@ -94,7 +94,7 @@ def main():
 
     range = input("Insert value for number of range\n") # use inputs value for the range they wish to find primes in
     while not(range.isdigit()): # error handling is done here where if the user inputs a string the loop continues until an int is inputted
-        range = int(input("Insert an integer for number of range\n"))
+        range = input("Insert an integer for number of range\n")
     range = int(range) # convert the string version of an int to an actual useable int
 
 
