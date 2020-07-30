@@ -105,7 +105,7 @@ def main():
     printPrimes(primes , 0)
 
 
-    primes.clear()
+    primes.clear() # clears the console
     print("Array cleared...ready for SEMI-LONG")
     input("Press enter to execute \"findPrimesTheSemiLongWay\"")
 
@@ -114,7 +114,7 @@ def main():
     printPrimes(primes , 1)
 
 
-    primes.clear()
+    primes.clear() # clears the console
     print("Array cleared...ready for OPTIMIZED way")
     input("Press enter to execute \"findPrimesTheOptimisedWay\"")
 
